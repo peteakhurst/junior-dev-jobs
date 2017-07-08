@@ -1,21 +1,23 @@
 #Tells Travis What Language we're writing in 
 language: node_js
-node_js:  
+node_js:
   - "node"
 
 # Cache tells Travis to keep files 
 cache:
   directories:  
     - "node_modules"
-    
-    deploy:
-  provider: heroku
-  app: pete-jdjobs-dev
-    api_key:
-      secure: "r6zJUy1jHsmf+flzJEm9TGpAPSNvAKtMkyMP0OGRVmCKA02En3+zyYFhCfDSe68PLCVJhIfJPOMNlRCZwub/dtqyXvTp6+euS4ag3DCVhR2evS2bDCEqJ+5hsYEphilGzNrEmDFeK87TjWZjZmvQ1VzPcLSJ3NaCws7WI/Gbw+qxacKDEjicTPamXico52Ypaw3mYvEU8j3ySN+y567QCkdbqIq37KcfVB7ytM4xXFfGpYyN5nYnGMy9c5GSQ4J9+cV/eebzLCDrQHTngFcUk4rlPZINysz6Al8Vm0JxHdqeBjpo37F2kaoc5eGQ0RSdekCNZCqhWFwkQVAOw4TohkeETrYGT32pGIjLGOutzVclvqRv7GrRqkYoNA+SYsO4FjvHXpxmP9bsyewOQtybzeN0HiXhnBAzOoJr4Euy7LdNWKMuZuKLQiYrDxy54xarZKc2rybkeLXPivAoGKcLuTHRzkSnP+Tkb5Q7zmEh5pS1aLQJiUu7QzHjvLFGEZlLpKRojo+vKRYisUmnCpwJTO2Bdtu4BvzkfS9EhXmYsWRuhsobmN0x7ohHVxbvVtnNFGUznCDmnZ5yXSgHe0LAQGdC/7er2Jy3WAHvR1bQW5iMRP0QUVJRKPjp85TW6WO+zcOQae/Ar4qIO7l6xnu2EMKHtDFAIAOtMmtM07j08xs="
-    on:
-      all_branches: true
-    
-  #Script Runs the build   
+install: true
+#Script Runs the build   
   script: 
    - ./build/build.sh
+    
+deploy:
+  provider: heroku
+  app: pete-jdjobs-dev
+  api_key:
+    secure: "r6zJUy1jHsmf+flzJEm9TGpAPSNvAKtMkyMP0OGRVmCKA02En3+zyYFhCfDSe68PLCVJhIfJPOMNlRCZwub/dtqyXvTp6+euS4ag3DCVhR2evS2bDCEqJ+5hsYEphilGzNrEmDFeK87TjWZjZmvQ1VzPcLSJ3NaCws7WI/Gbw+qxacKDEjicTPamXico52Ypaw3mYvEU8j3ySN+y567QCkdbqIq37KcfVB7ytM4xXFfGpYyN5nYnGMy9c5GSQ4J9+cV/eebzLCDrQHTngFcUk4rlPZINysz6Al8Vm0JxHdqeBjpo37F2kaoc5eGQ0RSdekCNZCqhWFwkQVAOw4TohkeETrYGT32pGIjLGOutzVclvqRv7GrRqkYoNA+SYsO4FjvHXpxmP9bsyewOQtybzeN0HiXhnBAzOoJr4Euy7LdNWKMuZuKLQiYrDxy54xarZKc2rybkeLXPivAoGKcLuTHRzkSnP+Tkb5Q7zmEh5pS1aLQJiUu7QzHjvLFGEZlLpKRojo+vKRYisUmnCpwJTO2Bdtu4BvzkfS9EhXmYsWRuhsobmN0x7ohHVxbvVtnNFGUznCDmnZ5yXSgHe0LAQGdC/7er2Jy3WAHvR1bQW5iMRP0QUVJRKPjp85TW6WO+zcOQae/Ar4qIO7l6xnu2EMKHtDFAIAOtMmtM07j08xs="
+  on:
+    all_branches: true
+    
+  
