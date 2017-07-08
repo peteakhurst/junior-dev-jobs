@@ -10,6 +10,9 @@ const path = require('path');
 let app = express();
 let db;
 
+let httpListenPort = process.env.PORT || 3000;
+let mongoDbUrl = process.env.MONGO_URL || "mongodb://localhost/3000"
+
 MongoClient.connect('mongodb://localhost/juniordevjobsdb', function(err, dbConnection) {
   db = dbConnection;
   let server = app.listen(3000, function() {
