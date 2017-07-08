@@ -1,5 +1,5 @@
 #Tells Travis What Language we're writing in 
-language: node.js
+language: node_js
 node_js:  
   - "node"
 
@@ -10,4 +10,4 @@ cache:
     
   #Script Runs the build   
   script: 
-   - "./build/build.sh"
+   - ./build/build.sh
